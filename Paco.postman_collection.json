@@ -1,0 +1,949 @@
+{
+	"info": {
+		"_postman_id": "ad44be47-a03d-4c59-8368-7d54840c87cd",
+		"name": "Paco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "companypostman@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/api/login",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						},
+						"description": "# Endpoint to log in\n\n## Possible answers\n\n- If all went well\n> {\n>    success: true, \n>    data: [ { access_token }], \n>    code: 200\n>  }\n\n- If the password is wrong\n>{ \n>   success: false, \n>   data:[], \n>   code: 403, \n>   messages: `wrong values` \n>}\n\n- If the email hasn't already been registered\n>{ \n>  success: false, \n>  data:[], \n>  code: 403, \n>  messages: `wrong values` \n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}"
+					},
+					"response": []
+				},
+				{
+					"name": "send code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "albertoayalarodriguez97@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/api/forgot_password",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"forgot_password"
+							]
+						},
+						"description": "# Endpoint to send code\n\n## Possible answers\n\n- If all went well\n> {\n>    success: true, \n>    data: [], \n>    code: 200\n>    messages: 'Code was send'\n>  }\n\n- If the email does not exitst\n>{ \n>    success: false, \n>    data:[], \n>    code: 403, \n>    messages: 'The email does not exists'\n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}"
+					},
+					"response": []
+				},
+				{
+					"name": "update password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2ZTFmOTI3LWQ0ZGYtNGVkYS1hYjU1LTgxOGNkZDhjNGUzMyIsImlhdCI6MTY0NjA4MTcwOSwiZXhwIjoxNjQ2MDgyNjA5fQ.6YDTjgiJcKlofv7qGIoK2RbBP5c-8m6WQpo0CXj0Ut8",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "algo_.1234",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/api/change_password",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"change_password"
+							]
+						},
+						"description": "# Endpoint to updatde password\n\n## Possible answers\n\n- If all went well\n> {\n>    success: true, \n>    data: [], \n>    code: 200\n>    messages: 'Password update'\n>  }\n\n- If something was wrong\n>{ \n>    success: false, \n>    data:[], \n>    code: 403, \n>    messages: 'could not update password'\n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update auth",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "algo@gmail.com.co1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/api/auth/f59e51e1-2e8a-4bdd-ae60-7fd6e63d4769",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"f59e51e1-2e8a-4bdd-ae60-7fd6e63d4769"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "full_name",
+									"value": "Camilo Rojas Gomez",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Test business",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "3124578965",
+									"type": "text"
+								},
+								{
+									"key": "cc",
+									"value": "12345678919",
+									"type": "text"
+								},
+								{
+									"key": "expedition_date",
+									"value": "2015/11/17",
+									"type": "text"
+								},
+								{
+									"key": "domain",
+									"value": "co",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/register_CO?referral_code=MXI92WBA&referral_type=business",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"register_CO"
+							],
+							"query": [
+								{
+									"key": "referral_code",
+									"value": "MXI92WBA"
+								},
+								{
+									"key": "referral_type",
+									"value": "business"
+								}
+							]
+						},
+						"description": "# Endpoint to register a user\n\n## Possible answers \n\n- If everything goes well\n>{\n>   success: true, \n>   data: {\n     \"auth_id\": \"uuid\",\n     \"user_id\": \"uuid\",\n>   }, \n>   code: 201\n>}\n\n- If the curp code was already registered\n>{ \n>   success: false, \n>   data:[], \n>   code: 400, \n>   messages: `The code: ${exists_curp.curp} already exists` \n>}\n\n- If the email has already been registered\n>{ \n>   success: false, \n>   data:[], \n>   code: 400, \n>   messages: `The email ${exists_email.email} already exists` \n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "access_token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/api/user/:id",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						},
+						"description": "# Endpoint to get user by id\n\n## Possible answers\n\n- If all went well\n>{\n>  success: true, \n>  data: [{ user: user_information }],\n>  code: 200\n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}\n\n## Error authentication\n\n-If auth id not found\n>{ \n>   success: false, \n>   data:[], \n>   code: 401, \n>   messages: 'Product not found' \n>}\n\n-If request does not have access token\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'no token'\n>   } \n>}\n\n-If the authorization type is not Bearer\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'Invalid format'\n>   } \n>}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "access_token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "first_name",
+									"value": "first name",
+									"type": "text"
+								},
+								{
+									"key": "second_name",
+									"value": "second name",
+									"type": "text"
+								},
+								{
+									"key": "first_surname",
+									"value": "firsts surname",
+									"type": "text"
+								},
+								{
+									"key": "second_surname",
+									"value": "second surname",
+									"type": "text"
+								},
+								{
+									"key": "birthdate",
+									"value": "birthdate",
+									"type": "text"
+								},
+								{
+									"key": "zipcode",
+									"value": "zipcode",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "state",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "city",
+									"type": "text"
+								},
+								{
+									"key": "street",
+									"value": "street",
+									"type": "text"
+								},
+								{
+									"key": "curp",
+									"value": "curp",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "email@algo.com",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "country",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "123456789",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/api/user/:id",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						},
+						"description": "# Endpoint to update a user\n\nyou can send all the values or just only that you need update\n\n## Possible answers \n\n- If everything goes well\n>{\n>  success: true, \n>  data: [{ update_user }],\n>  code: 200\n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}\n\n## Error authentication\n\n-If auth id not found\n>{ \n>   success: false, \n>   data:[], \n>   code: 401, \n>   messages: 'Product not found' \n>}\n\n-If request does not have access token\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'no token'\n>   } \n>}\n\n-If the authorization type is not Bearer\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'Invalid format'\n>   } \n>}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Waitlist",
+			"item": [
+				{
+					"name": "New waitlist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "algo@example.com",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/api/waitlist",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"waitlist"
+							]
+						},
+						"description": "# Endpoint to register into wait list\n\n## Possible answers\n\n- If all went well\n>{\n>   success: true, \n>   data: [id], \n>   code: 201\n>}\n\n- If the email already exists\n{ \n>   success: false, \n>   data:[], \n>   code: 400, \n>   messages: `The email ${email} already exists` \n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update waitlist by email",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "processed",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "create credit",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "AR",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/api/waitlist/:email",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"waitlist",
+								":email"
+							],
+							"variable": [
+								{
+									"key": "email",
+									"value": null
+								}
+							]
+						},
+						"description": "# Endpoint to update a record in wait list\n\n## Possible answers\n\n- If all went well\n>{\n>  success: true, \n>  data: [results], \n>  code: 201\n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/api/products",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "# Endpoint to get all products\n\n## Possible answers\n\n- If all went well\n>{\n>  success: true, \n>  data: products,\n>  code: 200\n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get product by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/api/product/:id",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						},
+						"description": "# Endpoint to get a product by id\n\n## Possible answers\n\n- If all went well\n>{\n>  success: true, \n>  data: product,\n>  code: 200\n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Score",
+			"item": [
+				{
+					"name": "Get last score by auth id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "access_token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/api/last_score",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"last_score"
+							]
+						},
+						"description": "# Endpoint to register a user\n\n## Possible answers \n- If everything goes well\n>{\n>   success: true, \n>   data: [\n>  {\n>    \"id\": \"id_score\",\n>    \"value\": value_score,\n>    \"codes\": [\n>\"{\\\"reason\\\":\\\"D2\\\",\\\"description\\\":\\\"Morosidad en las cuentas\\\"}\",\n>\"{\\\"reason\\\":\\\"P9\\\",\\\"description\\\":\\\"La proporción de saldo del préstamo vs la cantidad del préstamo es muy alta\\\"}\",\n>\"{\\\"reason\\\":\\\"K0\\\",\\\"description\\\":\\\"Tiempo transcurrido desde la Morosidad es demasiado reciente o desconocida\\\"}\",\n>\"{\\\"reason\\\":\\\"E0\\\",\\\"description\\\":\\\"Informa>ción Demográfica\\\"}\"],\n>  \"created_at\": \"date_mock\"\n>  }\n>], \n>   code: 200\n>}\n\n- If user doesn't hace scores\n>{\n>   success:true,\n>   data:[],\n>   code:201,\n>   messages: 'user doesn't have scores'\n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}\n\n## Error authentication\n\n-If auth id not found\n>{ \n>   success: false, \n>   data:[], \n>   code: 401, \n>   messages: 'Product not found' \n>}\n\n-If request does not have access token\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'no token'\n>   } \n>}\n\n-If the authorization type is not Bearer\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'Invalid format'\n>   } \n>}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get scores by auth id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "access_token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/api/scores",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"scores"
+							]
+						},
+						"description": "# Endpoint to get all scores\n\n## Possible answers \n- If everything goes well\n>{\n>   success: true, \n>   data: [\n>  {\n>    \"id\": \"id_score\",\n>    \"value\": value_score,\n>    \"codes\": [\n>\"{\\\"reason\\\":\\\"D2\\\",\\\"description\\\":\\\"Morosidad en las cuentas\\\"}\",\n>\"{\\\"reason\\\":\\\"P9\\\",\\\"description\\\":\\\"La proporción de saldo del préstamo vs la cantidad del préstamo es muy alta\\\"}\",\n>\"{\\\"reason\\\":\\\"K0\\\",\\\"description\\\":\\\"Tiempo transcurrido desde la Morosidad es demasiado reciente o desconocida\\\"}\",\n>\"{\\\"reason\\\":\\\"E0\\\",\\\"description\\\":\\\"Informa>ción Demográfica\\\"}\"],\n>  \"created_at\": \"date_mock\"\n>  }\n>\"{\\\"reason\\\":\\\"D2\\\",\\\"description\\\":\\\"Morosidad en las cuentas\\\"}\",\n>\"{\\\"reason\\\":\\\"P9\\\",\\\"description\\\":\\\"La proporción de saldo del préstamo vs la cantidad del préstamo es muy alta\\\"}\",\n>\"{\\\"reason\\\":\\\"K0\\\",\\\"description\\\":\\\"Tiempo transcurrido desde la Morosidad es demasiado reciente o desconocida\\\"}\",\n>\"{\\\"reason\\\":\\\"E0\\\",\\\"description\\\":\\\"Informa>ción Demográfica\\\"}\"],\n>  \"created_at\": \"date_mock\"\n>  }\n>], \n>   code: 200\n>}\n\n- If user doesn't have scores\n>{\n>   success:true,\n>   data:[],\n>   code:201,\n>   messages: 'user doesn't have scores'\n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}\n\n## Error authentication\n\n-If auth id not found\n>{ \n>   success: false, \n>   data:[], \n>   code: 401, \n>   messages: 'Product not found' \n>}\n\n-If request does not have access token\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'no token'\n>   } \n>}\n\n-If the authorization type is not Bearer\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'Invalid format'\n>   } \n>}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get current score from circulo de credito by auth id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "access_token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/api/score_cc",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"score_cc"
+							]
+						},
+						"description": "# Endpoint to get score from circulo de credito\n\n## Possible answers \n- If everything goes well\n> {\n>  \"success\": true,\n>  \"data\":[\n>    {\n>      \"current_score\": {\n>      \"folioConsulta\": \"19698610\",\n>       \"score\": {\n>        \"nombreScore\": \"FICO\",\n>        \"valor\": 720,\n>        \"razones\": [\n>         {\n>          \"reason\": \"D2\",\n>          \"description\": \"Morosidad en las cuentas\"\n>          },\n>          {\n>          \"reason\": \"P9\",\n>          \"description\": \"La proporción de saldo del préstamo vs la cantidad del préstamo es muy alta\"\n>           },\n>           {\n>           \"reason\": \"K0\",\n>           \"description\": \"Tiempo transcurrido desde la Morosidad es demasiado reciente o desconocida\"\n>            },\n>            {\n>            \"reason\": \"E0\",\n>            \"description\": \"Información Demográfica\"\n>             }\n>           ]\n>         }\n>       }\n>     }\n>  ],\n>  \"code\": 200\n> }\n\n-If a user was not found\n>{ \n>  success: false, \n>  data:[], \n>  code: 400, \n>  messages: 'User doesn't have scores'\n>}\n\n-If a month has not passed since the last consultation\n>{ \n>  success: false, \n>  data:[], \n>  code: 400, \n>  messages: 'not enough time has passed' \n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}\n\n## Error authentication\n\n-If auth id not found\n>{ \n>   success: false, \n>   data:[], \n>   code: 401, \n>   messages: 'Product not found' \n>}\n\n-If request does not have access token\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'no token'\n>   } \n>}\n\n-If the authorization type is not Bearer\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'Invalid format'\n>   } \n>}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "access_token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "payment_method",
+									"value": "payment access_token_2",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "status mock 2",
+									"type": "text"
+								},
+								{
+									"key": "months",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "total",
+									"value": "5000000",
+									"type": "text"
+								},
+								{
+									"key": "product_id",
+									"value": "0ab1b1f6-7f5e-4a12-aa7e-4ed855dd1b06",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/api/orders",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "# Endpoint to create order\n\n## Possible answers\n\n- If all went well\n\n> {\n>    success: true, \n>    data: { \n>      payment_method: 'payment method'\n>      status: 'status order',       \n>      total: 'price order',\n>      created_at: 'date was created'\n>      auth: 'auth_id',\n>      product: 'product_id'\n>      id: 'order_id'\n>    }, \n>    code: 200\n>  }\n\n- If product not found\n>{ \n>   success: false, \n>   data:[], \n>   code: 409, \n>   messages: 'Product not found' \n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}\n\n## Error authentication\n\n-If auth id not found\n>{ \n>   success: false, \n>   data:[], \n>   code: 401, \n>   messages: 'Product not found' \n>}\n\n-If request does not have access token\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'no token'\n>   } \n>}\n\n-If the authorization type is not Bearer\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'Invalid format'\n>   } \n>}"
+					},
+					"response": []
+				},
+				{
+					"name": "Order by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "access_token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/api/orders/:id",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						},
+						"description": "# Endpoint to get order by order id\n\n## Possible answers\n\n- If all went well\n\n> {\n>    success: true, \n>    data: { \n>      id: 'order_id'\n>      payment_method: 'payment method',       \n>      status: 'status order',\n>      total: 'price order'\n>      created_at: 'creation date',\n>      payments: [\n>        {\n>           id: 'id_payment',\n>           value: 'price payment',\n>           status: 'status payment',\n>           created_at: 'creation date',\n>           updated_at: 'update date',\n>           dead_line: 'dead line date'\n>        },\n>        {\n>           id: 'id_payment',\n>           value: 'price payment',\n>           status: 'status payment',\n>           created_at: 'creation date',\n>           updated_at: 'update date',\n>           dead_line: 'dead line date'\n>        },\n>      ]\n>      product: {\n>           id: 'id_product',\n>           name: 'product name',\n>           price: 'price product',\n>           description: 'description product',\n>           created_at: 'creation date',\n>           content_url: 'content url'\n>      }\n>    }, \n>    code: 200\n>  }\n\n- If order not found\n>{ \n>   success: false, \n>   data:[], \n>   code: 201, \n>   messages: 'Product not found' \n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}\n\n## Error authentication\n\n-If auth id not found\n>{ \n>   success: false, \n>   data:[], \n>   code: 401, \n>   messages: 'Product not found' \n>}\n\n-If request does not have access token\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'no token'\n>   } \n>}\n\n-If the authorization type is not Bearer\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'Invalid format'\n>   } \n>}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get orders by auth id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "access_token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{API}}/api/orders",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						},
+						"description": "# Endpoint to get order by order id\n\n## Possible answers\n\n- If all went well\n\n> {\n>    success: true, \n>    data:[ \n> { \n>      id: 'order_id'\n>      payment_method: 'payment method',       \n>      status: 'status order',\n>      total: 'price order'\n>      created_at: 'creation date',\n>      payments: [\n>        {\n>           id: 'id_payment',\n>           value: 'price payment',\n>           status: 'status payment',\n>           created_at: 'creation date',\n>           updated_at: 'update date',\n>           dead_line: 'dead line date'\n>        },\n>        {\n>           id: 'id_payment',\n>           value: 'price payment',\n>           status: 'status payment',\n>           created_at: 'creation date',\n>           updated_at: 'update date',\n>           dead_line: 'dead line date'\n>        },\n>      ]\n>      product: {\n>           id: 'id_product',\n>           name: 'product name',\n>           price: 'price product',\n>           description: 'description product',\n>           created_at: 'creation date',\n>           content_url: 'content url'\n>      }\n>  },\n>  { \n>      id: 'order_id'\n>      payment_method: 'payment method',       \n>      status: 'status order',\n>      total: 'price order'\n>      created_at: 'creation date',\n>      payments: [\n>        {\n>           id: 'id_payment',\n>           value: 'price payment',\n>           status: 'status payment',\n>           created_at: 'creation date',\n>           updated_at: 'update date',\n>           dead_line: 'dead line date'\n>        },\n>      ]\n>      product: {\n>           id: 'id_product',\n>           name: 'product name',\n>           price: 'price product',\n>           description: 'description product',\n>           created_at: 'creation date',\n>           content_url: 'content url'\n>      }\n>  },\n>] \n>    code: 200\n>  }\n\n\n- If user auth not found\n>{ \n>   success: false, \n>   data:[], \n>   code: 201, \n>   messages: 'User not found' \n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}\n\n## Error authentication\n\n-If auth id not found\n>{ \n>   success: false, \n>   data:[], \n>   code: 401, \n>   messages: 'Product not found' \n>}\n\n-If request does not have access token\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'no token'\n>   } \n>}\n\n-If the authorization type is not Bearer\n>{ \n>   status: 401, \n>   success: false,  \n>   data: {\n>     message: 'Invalid format'\n>   } \n>}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Business Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "company name",
+									"type": "text"
+								},
+								{
+									"key": "percentage",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "domain",
+									"value": "mx",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "emial@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/api/business/register",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"business",
+								"register"
+							]
+						},
+						"description": "# Endpoint to register a business user\n\n## Possible answers \n\n- If everything goes well\n>{\n>   success: true, \n>   data: {\n     \"auth_id\": \"uuid\",\n     \"user_id\": \"uuid\",\n>   }, \n>   code: 201\n>}\n\n- If the email has already been registered\n>{ \n>   success: false, \n>   data:[], \n>   code: 409, \n>   messages: 'wrong values' \n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "percentage",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "company postman",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/api/business/user/:id",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"business",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						},
+						"description": "# Endpoint to updade a business user\n\n## Possible answers \n\n- If everything goes well\n>{\n>   success: true, \n>   data: {}, \n>   code: 200\n>}\n\n- If the server failed\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Business referrals",
+			"item": [
+				{
+					"name": "get all referrals by user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/api/business/referrals/:id",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"business",
+								"referrals",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						},
+						"description": "# Endpoint to get referrals by user id\n\n## Possible answers \n\n- If everything goes well\n\n>{\n>   success: true, \n>   data: {\n>     full_name: \"name\",\n>     email: \"algo@email.com\",\n>     phone_number: \"1234523\",\n>     order: {\n>       id: \"uuid\",\n>       total: 10000,\n>       payments: [\n>        {\n>          id: \"uuid\",\n>          value: 1200,\n>          status: \"status payment\"\n>          dead_line: \"2022/03/15\n>        },\n>        {\n>          id: \"uuid\",\n>          value: 1200,\n>          status: \"status payment\"\n>          dead_line: \"2022/03/15\n>        },\n>       ],\n>       product {\n>        id: \"uuid\",\n>        name: \"name\",\n>        price: 500,\n>        images: \"url\"\n>        description: \"description\"\n>        type:\"type\"\n>       }  \n>     }\n>   }, \n>   code: 200\n>}\n\n- If doesn't have referrals\n\n>{ \n>   success: true, \n>   data:[], \n>   code: 201 \n>}\n\n- If the server failed\n\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Common referrals",
+			"item": [
+				{
+					"name": "get all referrals by user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/api/common/referrals/:id",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"common",
+								"referrals",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						},
+						"description": "# Endpoint to get referrals by user id\n\n## Possible answers \n\n- If everything goes well\n\n>{\n>   success: true, \n>   data: {\n>     full_name: \"name\",\n>     order: {\n>       id: \"uuid\",\n>       total: 10000,\n>       payments: [\n>        {\n>          id: \"uuid\",\n>          value: 1200,\n>          status: \"status payment\"\n>          dead_line: \"2022/03/15\n>        },\n>        {\n>          id: \"uuid\",\n>          value: 1200,\n>          status: \"status payment\"\n>          dead_line: \"2022/03/15\n>        },\n>       ],\n>       product {\n>        id: \"uuid\",\n>        name: \"name\",\n>        price: 500,\n>        images: \"url\"\n>        description: \"description\"\n>        type:\"type\"\n>       }  \n>     }\n>   }, \n>   code: 200\n>}\n\n- If doesn't have referrals\n\n>{ \n>   success: true, \n>   data:[], \n>   code: 201 \n>}\n\n- If the server failed\n\n>{\n>  success: false, \n>  data:[], \n>  code: 500, \n>  messages: error \n>}"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API",
+			"value": "https://api.holapaco.mx"
+		}
+	]
+}
